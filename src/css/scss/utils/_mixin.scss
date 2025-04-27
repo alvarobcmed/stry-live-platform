@@ -1,0 +1,112 @@
+// Mixins para responsividade
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "xs" {
+    @media (max-width: 575.98px) { @content; }
+  } @else if $breakpoint == "sm" {
+    @media (min-width: 576px) and (max-width: 767.98px) { @content; }
+  } @else if $breakpoint == "md" {
+    @media (min-width: 768px) and (max-width: 991.98px) { @content; }
+  } @else if $breakpoint == "lg" {
+    @media (min-width: 992px) and (max-width: 1199.98px) { @content; }
+  } @else if $breakpoint == "xl" {
+    @media (min-width: 1200px) { @content; }
+  }
+}
+
+// Mixin para flexbox
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+// Mixin para grid
+@mixin grid($columns: 1, $gap: 1rem) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+// Mixin para posicionamento absoluto
+@mixin absolute($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+// Mixin para truncar texto
+@mixin truncate($lines: 1) {
+  @if $lines == 1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+// Mixin para sombras
+@mixin shadow($level: 1) {
+  @if $level == 1 {
+    box-shadow: var(--shadow-sm);
+  } @else if $level == 2 {
+    box-shadow: var(--shadow-md);
+  } @else if $level == 3 {
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+// Mixin para transições
+@mixin transition($properties: all) {
+  transition: $properties var(--transition-speed) var(--transition-timing);
+}
+
+// Mixin para botões
+@mixin button-variant($background, $border, $color) {
+  background-color: $background;
+  border-color: $border;
+  color: $color;
+  
+  &:hover, &:focus {
+    background-color: darken($background, 10%);
+    border-color: darken($border, 12%);
+  }
+  
+  &:active {
+    background-color: darken($background, 15%);
+    border-color: darken($border, 17%);
+  }
+}
+
+// Mixin para cards
+@mixin card($padding: var(--spacing-md), $radius: var(--border-radius-md), $shadow: 1) {
+  background-color: white;
+  border-radius: $radius;
+  padding: $padding;
+  @include shadow($shadow);
+}
+
+// Mixin para animações
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+// Mixin para aplicar animação
+@mixin animate($name, $duration: 1s, $timing: ease, $delay: 0s, $iteration: 1, $direction: normal, $fill: none) {
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-timing-function: $timing;
+  animation-delay: $delay;
+  animation-iteration-count: $iteration;
+  animation-direction: $direction;
+  animation-fill-mode: $fill;
+}

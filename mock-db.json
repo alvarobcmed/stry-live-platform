@@ -1,0 +1,379 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Admin Master",
+      "email": "admin@stry.live",
+      "role": "admin_master",
+      "clientId": "1",
+      "stripeCustomerId": "cus_master123",
+      "subscription": {
+        "id": "sub_master123",
+        "status": "active",
+        "priceId": "price_pro",
+        "productId": "prod_pro",
+        "currentPeriodStart": "2025-04-01T00:00:00.000Z",
+        "currentPeriodEnd": "2025-05-01T00:00:00.000Z",
+        "cancelAtPeriodEnd": false
+      }
+    },
+    {
+      "id": "2",
+      "name": "Cliente Exemplo",
+      "email": "cliente@exemplo.com",
+      "role": "admin_client",
+      "clientId": "2",
+      "stripeCustomerId": "cus_client123",
+      "subscription": {
+        "id": "sub_client123",
+        "status": "active",
+        "priceId": "price_basic",
+        "productId": "prod_basic",
+        "currentPeriodStart": "2025-04-10T00:00:00.000Z",
+        "currentPeriodEnd": "2025-05-10T00:00:00.000Z",
+        "cancelAtPeriodEnd": false
+      }
+    },
+    {
+      "id": "3",
+      "name": "Usuário Teste",
+      "email": "usuario@teste.com",
+      "role": "admin_user",
+      "clientId": "2",
+      "permissions": {
+        "stories": ["view", "create", "edit"],
+        "lives": ["view", "create"],
+        "analytics": ["view"],
+        "settings": []
+      }
+    }
+  ],
+  "clients": [
+    {
+      "id": "1",
+      "name": "Stry.live",
+      "domain": "stry.live",
+      "plan": "enterprise",
+      "subscriptionId": "sub_master123",
+      "subscriptionStatus": "active",
+      "createdAt": "2025-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "name": "Empresa Exemplo",
+      "domain": "exemplo.com.br",
+      "plan": "basic",
+      "subscriptionId": "sub_client123",
+      "subscriptionStatus": "active",
+      "createdAt": "2025-04-10T00:00:00.000Z"
+    }
+  ],
+  "stories": [
+    {
+      "id": "1",
+      "clientId": "1",
+      "title": "Lançamento do Stry.live",
+      "description": "Conheça nossa nova plataforma de stories para sites",
+      "type": "image",
+      "url": "https://via.placeholder.com/800x1200/4a6cf7/ffffff?text=Stry.live",
+      "duration": 5,
+      "active": true,
+      "order": 1,
+      "createdAt": "2025-04-01T10:00:00.000Z",
+      "publishedAt": "2025-04-01T12:00:00.000Z",
+      "expiresAt": "2025-05-01T12:00:00.000Z",
+      "stats": {
+        "views": 1250,
+        "clicks": 320,
+        "shares": 45,
+        "likes": 78
+      }
+    },
+    {
+      "id": "2",
+      "clientId": "1",
+      "title": "Como criar seu primeiro story",
+      "description": "Tutorial passo a passo para criar stories incríveis",
+      "type": "video",
+      "url": "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "thumbnail": "https://via.placeholder.com/800x1200/28a745/ffffff?text=Tutorial",
+      "duration": 15,
+      "active": true,
+      "order": 2,
+      "createdAt": "2025-04-05T14:30:00.000Z",
+      "publishedAt": "2025-04-05T15:00:00.000Z",
+      "expiresAt": "2025-05-05T15:00:00.000Z",
+      "stats": {
+        "views": 980,
+        "clicks": 210,
+        "shares": 32,
+        "likes": 65
+      }
+    },
+    {
+      "id": "3",
+      "clientId": "2",
+      "title": "Novidades da Empresa Exemplo",
+      "description": "Conheça nossos novos produtos",
+      "type": "image",
+      "url": "https://via.placeholder.com/800x1200/dc3545/ffffff?text=Novidades",
+      "duration": 5,
+      "active": true,
+      "order": 1,
+      "createdAt": "2025-04-12T09:00:00.000Z",
+      "publishedAt": "2025-04-12T10:00:00.000Z",
+      "expiresAt": "2025-05-12T10:00:00.000Z",
+      "stats": {
+        "views": 450,
+        "clicks": 85,
+        "shares": 12,
+        "likes": 23
+      }
+    }
+  ],
+  "lives": [
+    {
+      "id": "1",
+      "clientId": "1",
+      "title": "Demonstração do Stry.live",
+      "description": "Apresentação ao vivo das funcionalidades da plataforma",
+      "streamKey": "stry-live-demo-123",
+      "rtmpUrl": "rtmp://live.stry.live/stream/",
+      "playbackUrl": "https://stream.stry.live/hls/stry-live-demo-123.m3u8",
+      "thumbnail": "https://via.placeholder.com/1280x720/4a6cf7/ffffff?text=Live+Demo",
+      "scheduledStart": "2025-04-25T15:00:00.000Z",
+      "scheduledEnd": "2025-04-25T16:00:00.000Z",
+      "status": "scheduled",
+      "stats": {
+        "peakViewers": 0,
+        "totalViewers": 0,
+        "averageWatchTime": 0,
+        "likes": 0,
+        "comments": 0
+      }
+    },
+    {
+      "id": "2",
+      "clientId": "1",
+      "title": "Webinar: Estratégias de Marketing com Stories",
+      "description": "Aprenda a usar stories para aumentar o engajamento",
+      "streamKey": "stry-live-webinar-123",
+      "rtmpUrl": "rtmp://live.stry.live/stream/",
+      "playbackUrl": "https://stream.stry.live/hls/stry-live-webinar-123.m3u8",
+      "thumbnail": "https://via.placeholder.com/1280x720/28a745/ffffff?text=Webinar",
+      "scheduledStart": "2025-04-30T14:00:00.000Z",
+      "scheduledEnd": "2025-04-30T15:30:00.000Z",
+      "status": "scheduled",
+      "stats": {
+        "peakViewers": 0,
+        "totalViewers": 0,
+        "averageWatchTime": 0,
+        "likes": 0,
+        "comments": 0
+      }
+    }
+  ],
+  "notifications": [
+    {
+      "id": "1",
+      "userId": "1",
+      "title": "Bem-vindo ao Stry.live",
+      "message": "Obrigado por se juntar à nossa plataforma. Comece criando seu primeiro story!",
+      "type": "welcome",
+      "read": true,
+      "createdAt": "2025-04-01T10:05:00.000Z"
+    },
+    {
+      "id": "2",
+      "userId": "1",
+      "title": "Novo recurso disponível",
+      "message": "Transmissões ao vivo agora estão disponíveis para todos os planos!",
+      "type": "feature",
+      "read": false,
+      "createdAt": "2025-04-20T08:30:00.000Z"
+    },
+    {
+      "id": "3",
+      "userId": "2",
+      "title": "Bem-vindo à Stry.live",
+      "message": "Obrigado por se juntar à nossa plataforma. Comece criando seu primeiro story!",
+      "type": "welcome",
+      "read": true,
+      "createdAt": "2025-04-10T11:15:00.000Z"
+    }
+  ],
+  "plans": [
+    {
+      "id": "prod_basic",
+      "name": "Plano Básico",
+      "description": "Ideal para pequenos negócios",
+      "priceId": "price_basic",
+      "amount": 49.90,
+      "currency": "brl",
+      "interval": "month",
+      "intervalCount": 1,
+      "trialPeriodDays": 7,
+      "features": ["5 stories por mês", "Métricas básicas", "Suporte por email"]
+    },
+    {
+      "id": "prod_pro",
+      "name": "Plano Profissional",
+      "description": "Para negócios em crescimento",
+      "priceId": "price_pro",
+      "amount": 99.90,
+      "currency": "brl",
+      "interval": "month",
+      "intervalCount": 1,
+      "trialPeriodDays": 7,
+      "features": ["20 stories por mês", "Métricas avançadas", "Suporte prioritário", "Transmissões ao vivo"]
+    },
+    {
+      "id": "prod_enterprise",
+      "name": "Plano Empresarial",
+      "description": "Solução completa para grandes empresas",
+      "priceId": "price_enterprise",
+      "amount": 199.90,
+      "currency": "brl",
+      "interval": "month",
+      "intervalCount": 1,
+      "trialPeriodDays": 7,
+      "features": ["Stories ilimitados", "Métricas avançadas", "Suporte 24/7", "Transmissões ao vivo", "API personalizada"]
+    }
+  ],
+  "invoices": [
+    {
+      "id": "in_12345",
+      "userId": "1",
+      "subscriptionId": "sub_master123",
+      "amount": 99.90,
+      "currency": "brl",
+      "status": "paid",
+      "paidAt": "2025-04-01T00:00:00.000Z",
+      "periodStart": "2025-04-01T00:00:00.000Z",
+      "periodEnd": "2025-05-01T00:00:00.000Z",
+      "invoiceUrl": "https://example.com/invoice/12345",
+      "pdfUrl": "https://example.com/invoice/12345/pdf"
+    },
+    {
+      "id": "in_67890",
+      "userId": "2",
+      "subscriptionId": "sub_client123",
+      "amount": 49.90,
+      "currency": "brl",
+      "status": "paid",
+      "paidAt": "2025-04-10T00:00:00.000Z",
+      "periodStart": "2025-04-10T00:00:00.000Z",
+      "periodEnd": "2025-05-10T00:00:00.000Z",
+      "invoiceUrl": "https://example.com/invoice/67890",
+      "pdfUrl": "https://example.com/invoice/67890/pdf"
+    }
+  ],
+  "analytics": {
+    "overview": {
+      "totalStories": 3,
+      "totalViews": 2680,
+      "totalClicks": 615,
+      "totalShares": 89,
+      "totalLikes": 166,
+      "averageEngagementRate": 22.95,
+      "averageCompletionRate": 78.5
+    },
+    "daily": [
+      {
+        "date": "2025-04-18",
+        "views": 120,
+        "clicks": 28,
+        "shares": 5,
+        "likes": 12
+      },
+      {
+        "date": "2025-04-19",
+        "views": 145,
+        "clicks": 32,
+        "shares": 7,
+        "likes": 15
+      },
+      {
+        "date": "2025-04-20",
+        "views": 135,
+        "clicks": 30,
+        "shares": 6,
+        "likes": 14
+      },
+      {
+        "date": "2025-04-21",
+        "views": 150,
+        "clicks": 35,
+        "shares": 8,
+        "likes": 16
+      },
+      {
+        "date": "2025-04-22",
+        "views": 165,
+        "clicks": 38,
+        "shares": 9,
+        "likes": 18
+      },
+      {
+        "date": "2025-04-23",
+        "views": 180,
+        "clicks": 42,
+        "shares": 10,
+        "likes": 20
+      },
+      {
+        "date": "2025-04-24",
+        "views": 195,
+        "clicks": 45,
+        "shares": 11,
+        "likes": 22
+      }
+    ]
+  },
+  "integrations": [
+    {
+      "id": "1",
+      "clientId": "1",
+      "type": "tag_manager",
+      "name": "Google Tag Manager - Stry.live",
+      "config": {
+        "containerId": "GTM-ABCDEF",
+        "playerPosition": "bottom-right",
+        "autoplay": true,
+        "muted": true,
+        "showControls": true,
+        "theme": {
+          "primaryColor": "#4a6cf7",
+          "textColor": "#ffffff",
+          "backgroundColor": "#000000",
+          "borderRadius": "12px"
+        }
+      },
+      "status": "active",
+      "createdAt": "2025-04-01T11:00:00.000Z",
+      "updatedAt": "2025-04-01T11:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "clientId": "2",
+      "type": "tag_manager",
+      "name": "Google Tag Manager - Empresa Exemplo",
+      "config": {
+        "containerId": "GTM-123456",
+        "playerPosition": "bottom-left",
+        "autoplay": true,
+        "muted": true,
+        "showControls": true,
+        "theme": {
+          "primaryColor": "#dc3545",
+          "textColor": "#ffffff",
+          "backgroundColor": "#000000",
+          "borderRadius": "8px"
+        }
+      },
+      "status": "active",
+      "createdAt": "2025-04-10T13:00:00.000Z",
+      "updatedAt": "2025-04-10T13:00:00.000Z"
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stry.live - Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #f0f4ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .login-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .login-header {
+            background-color: #4a6cf7;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .login-header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+        
+        .login-header p {
+            margin: 5px 0 0;
+            opacity: 0.9;
+        }
+        
+        .login-form {
+            padding: 30px;
+        }
+        
+        .login-form h2 {
+            margin-top: 0;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        
+        .form-group input:focus {
+            border-color: #4a6cf7;
+            outline: none;
+        }
+        
+        button {
+            background-color: #4a6cf7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+        
+        button:hover {
+            background-color: #3a5ce5;
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            margin-bottom: 15px;
+            font-size: 14px;
+            min-height: 20px;
+        }
+        
+        .login-info {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        
+        .login-info h3 {
+            color: #333;
+            margin-top: 0;
+            text-align: center;
+        }
+        
+        .credentials {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 15px;
+        }
+        
+        .credential-item {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .credential-item h4 {
+            margin-top: 0;
+            color: #4a6cf7;
+            margin-bottom: 10px;
+        }
+        
+        .credential-item p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #4a6cf7;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .login-container {
+                margin: 20px;
+                max-width: 100%;
+            }
+            
+            .credentials {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>Stry.live</h1>
+            <p>Plataforma de Stories para Sites</p>
+        </div>
+        <div class="login-form">
+            <h2>Login</h2>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Seu email">
+            </div>
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" placeholder="Sua senha">
+            </div>
+            <div class="error-message" id="error-message"></div>
+            <button id="login-button">Entrar</button>
+            
+            <div class="login-info">
+                <h3>Credenciais de Demonstração</h3>
+                <div class="credentials">
+                    <div class="credential-item">
+                        <h4>Admin Master</h4>
+                        <p><strong>Email:</strong> admin@stry.live</p>
+                        <p><strong>Senha:</strong> senha123</p>
+                    </div>
+                    <div class="credential-item">
+                        <h4>Admin Cliente</h4>
+                        <p><strong>Email:</strong> cliente@exemplo.com</p>
+                        <p><strong>Senha:</strong> senha123</p>
+                    </div>
+                    <div class="credential-item">
+                        <h4>Admin Usuário</h4>
+                        <p><strong>Email:</strong> usuario@teste.com</p>
+                        <p><strong>Senha:</strong> senha123</p>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="index.html" class="back-link">Voltar para a página inicial</a>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginButton = document.getElementById('login-button');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const errorMessage = document.getElementById('error-message');
+            
+            loginButton.addEventListener('click', function() {
+                const email = emailInput.value.trim();
+                const password = passwordInput.value.trim();
+                
+                if (!email || !password) {
+                    errorMessage.textContent = 'Por favor, preencha todos os campos.';
+                    return;
+                }
+                
+                errorMessage.textContent = '';
+                loginButton.textContent = 'Entrando...';
+                loginButton.disabled = true;
+                
+                // Simulação de login para demonstração
+                setTimeout(function() {
+                    if (
+                        (email === 'admin@stry.live' && password === 'senha123') ||
+                        (email === 'cliente@exemplo.com' && password === 'senha123') ||
+                        (email === 'usuario@teste.com' && password === 'senha123')
+                    ) {
+                        // Login bem-sucedido
+                        window.location.href = 'dashboard.html';
+                    } else {
+                        // Login falhou
+                        errorMessage.textContent = 'Email ou senha incorretos. Tente novamente.';
+                        loginButton.textContent = 'Entrar';
+                        loginButton.disabled = false;
+                    }
+                }, 1000);
+            });
+            
+            // Permitir login com Enter
+            passwordInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    loginButton.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
